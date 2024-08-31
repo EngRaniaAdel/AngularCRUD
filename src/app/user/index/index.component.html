@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>My CRUD Example</h1>
+
+    <a href="#" routerLink="/user/create/" class="btn btn-success">Create New User</a>
+      
+    <table class="table table-striped table-bordered">
+        <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.title }}</td>
+                <td>{{ user.body }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/user/', user.id, 'view']" class="btn btn-info">View</a>
+                  <a href="#" [routerLink]="['/user/', user.id, 'edit']" class="btn btn-primary">Edit</a>
+                  <button type="button" (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>
